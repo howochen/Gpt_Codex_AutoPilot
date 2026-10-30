@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BieLuanZha Dev AutoPilot Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol_version", "task_id", "revision", "status", "base_commit", "changed_files", "tests", "needs_review", "summary"],
+  "properties": {
+    "protocol_version": {"const": "1.0"},
+    "task_id": {"type": "string"},
+    "revision": {"type": "integer", "minimum": 1},
+    "status": {"enum": ["PASSED", "FAILED", "BLOCKED", "INTERRUPTED", "UNVERIFIED"]},
+    "base_commit": {"type": "string"},
+    "branch": {"type": ["string", "null"]},
+    "commit": {"type": ["string", "null"]},
+    "changed_files": {"type": "array", "items": {"type": "string"}},
+    "tests": {"type": "array", "items": {"type": "object", "required": ["name", "status"], "properties": {"name": {"type": "string"}, "status": {"enum": ["passed", "failed", "skipped"]}, "detail": {"type": "string"}}, "additionalProperties": false}},
+    "needs_review": {"type": "boolean"},
+    "summary": {"type": "string", "maxLength": 1800},
+    "error_code": {"type": ["string", "null"]}
+  }
+}

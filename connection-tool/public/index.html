@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh-Hant"><meta charset="utf-8"><title>別亂炸！Dev AutoPilot V1.1</title>
+<body><h1>別亂炸！Dev AutoPilot V1.1</h1>
+<p>連線診斷；不啟動 AI 開發任務，不 commit 或 push。</p>
+<form id="settings">
+<p><label>專案絕對路徑 <input name="repoPath" size="75" required></label></p>
+<p><label>GitHub repo <input name="githubRepo" value="howochen/BieLuanZha" required></label></p>
+<p><label>ChatGPT 原始對話 URL <input name="chatUrl" type="url" size="75" required placeholder="https://chatgpt.com/c/…"></label></p>
+<p>EXPERIMENTAL：瀏覽器連接器尚未實作，無法確認登入、開啟對話或發送探測。相關項目將顯示 SKIPPED。</p>
+<button id="test">測試連線</button> <button type="button" id="copy" disabled>複製結果</button>
+</form>
+<p role="status" id="status">尚未測試</p><table><thead><tr><th>檢查</th><th>結果</th><th>耗時 ms</th><th>說明</th></tr></thead><tbody id="checks"></tbody></table>
+<pre id="report"></pre><script src="/app.js"></script></body></html>
